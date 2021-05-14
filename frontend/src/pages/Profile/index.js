@@ -10,7 +10,7 @@ export default function Profile() {
   const [incidents, setIncidents] = useState([]);
 
   const ongName = localStorage.getItem('ongName');
-  const ongID = localStorage.getItem('ongId');
+  const ongId = localStorage.getItem('ongId');
 
   useEffect(() => {
     api.get('profile', {
@@ -36,16 +36,16 @@ export default function Profile() {
       </header>
       <h1>Casos Cadastrados</h1>
       <ul>
-        {incidents.map(incidents => (
-          <li key={incidents.id}>
+        {incidents.map(incident => (
+          <li key={incident.id}>
             <strong>CASO:</strong>
-            <p>{incidents.title}</p>
+            <p>{incident.tittle}</p>
 
             <strong>DESCRIÇÃO</strong>
-            <p>{incidents.description}</p>
+            <p>{incident.description}</p>
 
             <strong>VALOR</strong>
-            <p> {incidents.value} </p>
+            <p> {incident.value} </p>
             <button type="button">
               <FiTrash2 size={20} color="#a8a8b3" />
             </button>
